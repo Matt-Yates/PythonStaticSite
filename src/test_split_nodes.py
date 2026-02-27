@@ -1,5 +1,5 @@
 import unittest
-from textnode import TextNode, TextType
+from textnode import *
 from split_nodes import *
 
 class TestInlineMarkdown(unittest.TestCase):
