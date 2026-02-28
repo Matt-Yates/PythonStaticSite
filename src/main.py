@@ -1,6 +1,8 @@
 from textnode import TextNode, TextType
 import os
 import shutil
+from generate import *
+import sys
 
 def copy_directory(src, dst):
     # Clean destination directory if it exists, then recreate it
@@ -26,11 +28,14 @@ def copy_directory(src, dst):
 
 
 def main():
-    node = TextNode("This is some anchor text", TextType.LINK, "https://www.boot.dev")
-    print(node)
 
+    basepath = sys.argv[0]
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
+    else:
+        basepath = "/"
 
-    copy_directory("static", "public")
-
+    copy_directory("static", "docs")
+    generate_pages_recursive(basepath, "content", "template.html", "docs")
 
 main()
