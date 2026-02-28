@@ -29,7 +29,6 @@ def copy_directory(src, dst):
 
 def main():
 
-    basepath = sys.argv[0]
     if len(sys.argv) > 1:
         basepath = sys.argv[1]
     else:

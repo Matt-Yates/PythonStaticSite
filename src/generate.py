@@ -18,8 +18,8 @@ def generate_page(basepath, src, template, dest):
 
     final = template_string.replace("{{ Title }}", title)
     final = final.replace("{{ Content }}", html_string)
-    final = final.replace('href="/', f"href={basepath}")
-    final = final.replace('src=/"', f"src={basepath}" )
+    final = final.replace('href="/', f'href="{basepath}')
+    final = final.replace('src="/', f'src="{basepath}' )
 
     dest_dir = os.path.dirname(dest)
     if dest_dir:  # dest might be just "public/index.html" (has a dir) or "index.html" (no dir)
